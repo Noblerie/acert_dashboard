@@ -8,7 +8,9 @@ import Login from "./views/Login.vue";
 import Modal from "./views/Modal.vue";
 import Teams from "./views/Teams.vue";
 import Profile from "./views/Profile.vue";
+import Profile2 from "./views/Profile2.vue";
 import Member from "./views/Member.vue";
+import Test from "./views/test.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -22,6 +24,11 @@ const routes: RouteRecordRaw[] = [
     name: "Member",
     component: Member,
     meta: { layout: "empty" },
+  },
+  {
+    path: "/profile2",
+    name: "Profile2",
+    component: Profile2,
   },
   {
     path: "/dashboard",

@@ -85,7 +85,6 @@ export default defineComponent({
       phone_number: "",
       issue: false,
       id: 0,
-      new_id: 0,
     }
   },
   methods: {
@@ -99,15 +98,14 @@ export default defineComponent({
         name: this.name,
         phone_number: this.phone_number,
       })
-        .then(reponse => this.id = reponse.data.id)
+        .then(reponse => member_id (reponse.data.id))
         .catch(error => console.log(error))
-        return (this.id)
+        member_id (this.id)
       }
     }
   },
   setup(id) {
     const router = useRouter();
-    const new_id = id;
     const email = ref("");
     const name = ref("");
     const phone_number = ref("");
@@ -116,14 +114,13 @@ export default defineComponent({
       router.push("/dashboard");
     };
 
-    member_id(new_id);
+    //member_id(new_id);
 
     return {
       login,
       email,
       name,
       phone_number,
-      new_id,
     }
   },
 });

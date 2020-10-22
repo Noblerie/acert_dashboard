@@ -93,7 +93,7 @@
         </div>
       </div>
     </div>
-    <h1 class="bg-white">{{ data.id.value }}</h1>
+    <h1 class="bg-white">{{ data.id }}</h1>
   </header>
 </template>
 
@@ -122,13 +122,12 @@ export default defineComponent({
     const data = reactive({
         id: 666,
       });
-    data: member_id();
-
     return {
       data: member_id(),
       isOpen,
       dropdownOpen,
     };
+    console.log(data.id);
   },
 });
 </script>

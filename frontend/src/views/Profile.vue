@@ -1,18 +1,29 @@
 <template>
-  <h1>{{ data.id.value }}</h1>
+  <h6 class="bg-green-500">{{ firstName }}</h6>
 </template>
 
-<script>
-  import { ref, reactive } from "vue";
-  import { member_id } from "../views/Member.vue";
+<script lang="ts">
+  import { onMounted, onUpdated, onUnmounted, watch } from 'vue';
+  import Item from './Profile2.vue';
+  import { useCart } from '../hooks/test';
 
   export default {
-    setup() {
-      const data = reactive({
-        id: 666,
-      });
+  name: 'Cart',
+  components: Item,
 
-      return { data: member_id() };
-    }
-  };
+  setup() {
+    console.log('setup');
+    const { firstName } = useCart();
+
+    watch([firstName], () => console.log(`watch: ${firstName.value}`));
+
+    onMounted(() => {
+      console.log('mounted');
+    });
+    onUpdated(() => console.log('updated'));
+    onUnmounted(() => console.log('onunmounted'));
+
+    return { firstName };
+  }
+};
 </script>
