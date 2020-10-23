@@ -1,4 +1,5 @@
 const fastify = require('fastify')
+require('dotenv').config();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const app = fastify({ logger: true });
@@ -50,7 +51,7 @@ app.post(`/new/member`, async (req, res) => {
 
 app.post(`/new/email`, async (req, res) => {
   const { email } = req.body;
-  sgMail.setApiKey("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")
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
   const msg = {
     to: email,
     from: 'esteban.hulin@acert.io',
